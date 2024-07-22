@@ -1,5 +1,5 @@
 import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
-
+// import {authMiddleware} from '@clerk/nextjs';
 const isProtectedRoute = createRouteMatcher([
   '/',
   '/upcoming',
@@ -9,9 +9,15 @@ const isProtectedRoute = createRouteMatcher([
   '/meeting(.*)'
 ]);
 
+
 export default clerkMiddleware((auth, req) => {
   if (isProtectedRoute(req)) auth().protect();
 });
+
+// export default authMiddleware({
+//   publicRoutes:['/','/myQuery']
+//   authorizedParties: ['https://custom.vercel.app']
+// });
 
 
 export const config = {
