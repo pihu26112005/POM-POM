@@ -15,7 +15,7 @@ import {authMiddleware} from '@clerk/nextjs';
 // });
 
 export default authMiddleware({
-  publicRoutes:['/','/upcoming']
+  publicRoutes:['/','/upcoming'],
   authorizedParties: ['https://custom.vercel.app']
 });
 
